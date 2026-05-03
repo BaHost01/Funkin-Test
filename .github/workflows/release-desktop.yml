@@ -63,13 +63,13 @@ jobs:
         if: matrix.target == 'macos'
         run: |
           cd export/release/macos/bin
-          zip -r ../../../../FNF-Caleb-MacOS.zip .
+          zip -r "${{ github.workspace }}/FNF-Caleb-MacOS.zip" .
 
       - name: Package build (Linux)
         if: matrix.target == 'linux'
         run: |
           cd export/release/linux/bin
-          zip -r ../../../../FNF-Caleb-Linux.zip .
+          zip -r "${{ github.workspace }}/FNF-Caleb-Linux.zip" .
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
