@@ -45,11 +45,18 @@ jobs:
             haxe-build-${{ matrix.target }}-${{ runner.os }}-
 
       - name: Install Dependencies
+        shell: bash
         run: |
-          haxelib setup .haxelib
+          haxelib newrepo
           haxelib install hmm --never
           haxelib install hxp --never
           haxelib run hmm install
+          # Compile HXCPP tools if it's a git dependency (common in FNF mods)
+          if [ -d ".haxelib/hxcpp/git/tools/hxcpp" ]; then
+            pushd .haxelib/hxcpp/git/tools/hxcpp
+            haxe compile.hxml
+            popd
+          fi
           haxelib run lime setup
 
       - name: Build game

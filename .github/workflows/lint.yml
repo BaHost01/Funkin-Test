@@ -28,7 +28,7 @@ jobs:
 
       - name: Install Checkstyle
         run: |
-          haxelib setup .haxelib
+          haxelib newrepo
           haxelib install checkstyle --never
 
       - name: Run Checkstyle
