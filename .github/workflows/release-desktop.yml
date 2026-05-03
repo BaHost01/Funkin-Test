@@ -1,6 +1,7 @@
 name: Release Desktop
 
 on:
+  workflow_dispatch:
   push:
     tags:
       - 'v*'
@@ -26,16 +27,17 @@ jobs:
           submodules: 'recursive'
 
       - name: Setup Haxe
-        uses: ./.github/actions/setup-haxe
+        uses: funkincrew/ci-haxe@v3.2.7
         with:
-          gh-token: ${{ secrets.GITHUB_TOKEN }}
-          targets: ${{ matrix.target }}
+          haxe-version: 4.3.6
 
-      - name: Install dependencies (Linux)
-        if: matrix.target == 'linux'
+      - name: Install Dependencies
         run: |
-          sudo apt-get update
-          sudo apt-get install -y libvlc-dev libvlccore-dev
+          haxelib install lime --never
+          haxelib install openfl --never
+          haxelib install flixel --never
+          haxelib run lime setup
+          haxelib run hmm install --never
 
       - name: Build game
         run: |
@@ -44,30 +46,30 @@ jobs:
       - name: Package build (Windows)
         if: matrix.target == 'windows'
         shell: pwsh
-        run: |
-          Compress-Archive -Path export/release/windows/bin/* -DestinationPath FNF-Mod-Windows.zip
+        run: Compress-Archive -Path export/release/windows/bin/* -DestinationPath FNF-Caleb-Windows.zip
 
       - name: Package build (MacOS)
         if: matrix.target == 'macos'
         run: |
           cd export/release/macos/bin
-          zip -r ../../../FNF-Mod-MacOS.zip .
+          zip -r ../../../FNF-Caleb-MacOS.zip .
 
       - name: Package build (Linux)
         if: matrix.target == 'linux'
         run: |
           cd export/release/linux/bin
-          zip -r ../../../FNF-Mod-Linux.zip .
+          zip -r ../../../FNF-Caleb-Linux.zip .
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.target }}-build
-          path: FNF-Mod-*.zip
+          path: FNF-Caleb-*.zip
 
   release:
     needs: build
     runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
     permissions:
       contents: write
     steps:
@@ -78,8 +80,8 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            windows-build/FNF-Mod-Windows.zip
-            macos-build/FNF-Mod-MacOS.zip
-            linux-build/FNF-Mod-Linux.zip
+            windows-build/FNF-Caleb-Windows.zip
+            macos-build/FNF-Caleb-MacOS.zip
+            linux-build/FNF-Caleb-Linux.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

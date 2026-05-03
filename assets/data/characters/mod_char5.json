@@ -1,0 +1,21 @@
+{
+  "version": "1.0.1",
+  "name": "Mod Character 5",
+  "renderType": "sparrow",
+  "assetPath": "characters/mod_char5",
+  "scale": 1,
+  "offsets": [0, 0],
+  "cameraOffsets": [0, 0],
+  "isPixel": false,
+  "singTime": 4,
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "idle",
+      "offsets": [0, 0],
+      "looped": false,
+      "frameRate": 24
+    }
+  ],
+  "startingAnimation": "idle"
+}

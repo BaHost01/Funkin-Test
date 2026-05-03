@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="caleb_player.png">
+
+    <SubTexture name="idle0000" x="15" y="40" width="140" height="146"/>
+    <SubTexture name="idle0001" x="157" y="40" width="134" height="147"/>
+    <SubTexture name="idle0002" x="291" y="40" width="126" height="147"/>
+    <SubTexture name="idle0003" x="427" y="40" width="126" height="147"/>
+
+    <SubTexture name="left0000" x="14" y="241" width="141" height="144"/>
+    <SubTexture name="left0001" x="160" y="241" width="135" height="145"/>
+    <SubTexture name="left0002" x="300" y="241" width="135" height="145"/>
+    <SubTexture name="left0003" x="437" y="242" width="130" height="144"/>
+    <SubTexture name="left0004" x="574" y="242" width="131" height="144"/>
+
+    <SubTexture name="down0000" x="25" y="450" width="133" height="136"/>
+    <SubTexture name="down0001" x="174" y="451" width="131" height="134"/>
+    <SubTexture name="down0002" x="316" y="451" width="131" height="135"/>
+    <SubTexture name="down0003" x="460" y="452" width="128" height="134"/>
+
+    <SubTexture name="up0000" x="18" y="641" width="141" height="143"/>
+    <SubTexture name="up0001" x="168" y="641" width="136" height="145"/>
+    <SubTexture name="up0002" x="307" y="641" width="134" height="145"/>
+    <SubTexture name="up0003" x="444" y="642" width="130" height="144"/>
+
+    <SubTexture name="right0000" x="35" y="840" width="129" height="145"/>
+    <SubTexture name="right0001" x="174" y="840" width="127" height="145"/>
+    <SubTexture name="right0002" x="306" y="840" width="126" height="145"/>
+    <SubTexture name="right0003" x="437" y="840" width="125" height="145"/>
+
+    <SubTexture name="sing0000" x="774" y="54" width="130" height="146"/>
+    <SubTexture name="sing0001" x="909" y="55" width="131" height="146"/>
+    <SubTexture name="sing0002" x="1046" y="56" width="134" height="146"/>
+    <SubTexture name="sing0003" x="1182" y="55" width="130" height="148"/>
+
+    <SubTexture name="miss0000" x="818" y="268" width="116" height="133"/>
+
+    <SubTexture name="dies0000" x="799" y="467" width="205" height="116"/>
+    <SubTexture name="dies0001" x="1028" y="503" width="203" height="89"/>
+
+</TextureAtlas>

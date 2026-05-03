@@ -1,0 +1,12 @@
+{
+  "version": "1.0.2",
+  "name": "Mod Week 1",
+  "titleAsset": "mod_week1_title",
+  "props": [
+    {
+      "assetPath": "storymenu/mod_week1_opponent",
+      "offsets": [0, 0]
+    }
+  ],
+  "songs": ["mod-song1", "mod-song2", "mod-song3"]
+}

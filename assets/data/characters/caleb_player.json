@@ -1,0 +1,77 @@
+{
+  "version": "1.0.1",
+  "name": "Caleb Player",
+  "renderType": "sparrow",
+  "assetPath": "characters/caleb_player",
+  "scale": 1,
+  "offsets": [0, 0],
+  "cameraOffsets": [0, 0],
+  "isPixel": false,
+  "singTime": 4,
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "idle",
+      "offsets": [0, 0],
+      "looped": false,
+      "frameRate": 24
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "left",
+      "offsets": [0, 0],
+      "looped": false,
+      "frameRate": 24
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "down",
+      "offsets": [0, 0],
+      "looped": false,
+      "frameRate": 24
+    },
+    {
+      "name": "singUP",
+      "prefix": "up",
+      "offsets": [0, 0],
+      "looped": false,
+      "frameRate": 24
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "right",
+      "offsets": [0, 0],
+      "looped": false,
+      "frameRate": 24
+    },
+    {
+      "name": "singLEFTmiss",
+      "prefix": "miss",
+      "offsets": [0, 0],
+      "looped": false,
+      "frameRate": 24
+    },
+    {
+      "name": "singDOWNmiss",
+      "prefix": "miss",
+      "offsets": [0, 0],
+      "looped": false,
+      "frameRate": 24
+    },
+    {
+      "name": "singUPmiss",
+      "prefix": "miss",
+      "offsets": [0, 0],
+      "looped": false,
+      "frameRate": 24
+    },
+    {
+      "name": "singRIGHTmiss",
+      "prefix": "miss",
+      "offsets": [0, 0],
+      "looped": false,
+      "frameRate": 24
+    }
+  ],
+  "startingAnimation": "idle"
+}

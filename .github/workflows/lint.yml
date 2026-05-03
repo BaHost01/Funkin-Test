@@ -11,12 +11,12 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          submodules: false # Linting usually only needs the main source
+          submodules: false
 
       - name: Setup Haxe
-        uses: ./.github/actions/setup-haxe
+        uses: funkincrew/ci-haxe@v3.2.7
         with:
-          gh-token: ${{ secrets.GITHUB_TOKEN }}
+          haxe-version: 4.3.6
 
       - name: Install Checkstyle
         run: |
