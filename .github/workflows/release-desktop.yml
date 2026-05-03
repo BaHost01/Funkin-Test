@@ -49,6 +49,7 @@ jobs:
           haxelib install hmm --never
           haxelib install hxp --never
           haxelib run hmm install
+          haxelib list
 
       - name: Build game
         run: |
