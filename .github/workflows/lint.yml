@@ -22,9 +22,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: .haxelib
-          key: haxe-hmm-${{ runner.os }}-${{ hashFiles('**/hmm.json') }}
+          key: haxe-hmm-${{ runner.os }}-4.3.6-${{ hashFiles('**/hmm.json') }}
           restore-keys: |
-            haxe-hmm-${{ runner.os }}-
+            haxe-hmm-${{ runner.os }}-4.3.6-
 
       - name: Install Checkstyle
         run: |
