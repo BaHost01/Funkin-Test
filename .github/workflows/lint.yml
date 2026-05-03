@@ -1,0 +1,27 @@
+name: Lint
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          submodules: false # Linting usually only needs the main source
+
+      - name: Setup Haxe
+        uses: ./.github/actions/setup-haxe
+        with:
+          gh-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install Checkstyle
+        run: |
+          haxelib install checkstyle --never
+
+      - name: Run Checkstyle
+        run: |
+          haxelib run checkstyle -s source -c checkstyle.json --exit

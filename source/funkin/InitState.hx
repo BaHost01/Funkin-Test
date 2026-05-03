@@ -289,10 +289,7 @@ class InitState extends FlxState
     AlbumRegistry.instance.loadEntries();
     StageRegistry.instance.loadEntries();
     StickerRegistry.instance.loadEntries();
-
-    // TODO: CharacterDataParser doesn't use json2object, so it's way slower than the other parsers and more prone to syntax errors.
-    // Move it to use a BaseRegistry.
-    CharacterDataParser.loadCharacterCache();
+    CharacterRegistry.instance.loadEntries();
 
     NoteKindManager.initialize();
 
@@ -671,6 +668,19 @@ class InitState extends FlxState
   function defineSong():Null<String>
   {
     return MacroUtil.getDefine('SONG');
+  }
+
+  function defineLevel():Null<String>
+  {
+    return MacroUtil.getDefine('LEVEL');
+  }
+
+  function defineDifficulty():Null<String>
+  {
+    return MacroUtil.getDefine('DIFFICULTY');
+  }
+}
+acroUtil.getDefine('SONG');
   }
 
   function defineLevel():Null<String>

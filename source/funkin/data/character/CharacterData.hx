@@ -387,60 +387,7 @@ class CharacterDataParser
    */
   static function clearCharacterCache():Void
   {
-    if (characterCache != null)
-    {
-      characterCache.clear();
-    }
-    if (characterScriptedClass != null)
-    {
-      characterScriptedClass.clear();
-    }
-  }
-
-  /**
-   * Load a character's JSON file and parse its data.
-   *
-   * @param charId The character to load.
-   * @return The character data, or null if validation failed.
-   */
-  public static function parseCharacterData(charId:String):Null<CharacterData>
-  {
-    var rawJson:String = loadCharacterFile(charId);
-
-    var charData:Null<CharacterData> = migrateCharacterData(rawJson, charId);
-
-    return validateCharacterData(charId, charData);
-  }
-
-  static function loadCharacterFile(charPath:String):String
-  {
-    var charFilePath:String = Paths.json('characters/${charPath}');
-    var rawJson = Assets.getText(charFilePath).trim();
-
-    while (!StringTools.endsWith(rawJson, '}'))
-    {
-      rawJson = rawJson.substr(0, rawJson.length - 1);
-    }
-
-    return rawJson;
-  }
-
-  static function migrateCharacterData(rawJson:String, charId:String):Null<CharacterData>
-  {
-    // If you update the character data format in a breaking way,
-    // handle migration here by checking the `version` value.
-
-    try
-    {
-      var charData:CharacterData = cast Json.parse(rawJson);
-      return charData;
-    }
-    catch (e)
-    {
-      trace(' Error parsing data for character: ${charId}');
-      trace('   ${e}');
-      return null;
-    }
+    CharacterRegistry.instance.loadEntries();
   }
 
   /**

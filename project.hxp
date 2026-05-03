@@ -43,7 +43,7 @@ class Project extends HXProject
   /**
    * The game's name. Used as the default window title.
    */
-  static final TITLE:String = "Friday Night Funkin'";
+  static final TITLE:String = "caleb funkin";
 
   /**
    * The game's name on mobile. Used as the title for the game on the home screen.
@@ -586,7 +586,7 @@ class Project extends HXProject
   function flair()
   {
     // TODO: Implement this.
-    info("Friday Night Funkin' - " + VERSION);
+    info("caleb funkin - " + VERSION);
     info("Initializing build...");
 
     info("Git Branch:     " + getGitBranch());

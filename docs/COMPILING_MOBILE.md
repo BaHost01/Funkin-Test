@@ -1,4 +1,4 @@
-# Compiling Friday Night Funkin' for Mobile Devices
+# Compiling caleb funkin for Mobile Devices
 
 Before starting, **make sure your game builds on desktop.**
 Check [COMPILING.md](./COMPILING.md) if you haven’t done that yet.

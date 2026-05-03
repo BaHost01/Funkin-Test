@@ -603,6 +603,9 @@ class PolymodHandler
     ModuleHandler.clearModuleCache();
     Polymod.clearScripts();
 
+    // Clear the assets existence cache.
+    funkin.Assets.clearCache();
+
     // Forcibly reload Polymod so it finds any new files.
     // This will also register all scripts.
     // TODO: Replace this with loadEnabledMods().

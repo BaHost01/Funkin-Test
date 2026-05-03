@@ -138,7 +138,12 @@ class Assets implements ConsoleClass
    */
   public static function exists(path:String, ?type:openfl.utils.AssetType):Bool
   {
-    return openfl.utils.Assets.exists(path, type);
+    var cacheKey = path + (type == null ? "" : ":" + type);
+    if (existsCache.exists(cacheKey)) return existsCache.get(cacheKey);
+
+    var result = openfl.utils.Assets.exists(path, type);
+    existsCache.set(cacheKey, result);
+    return result;
   }
 
   /**
