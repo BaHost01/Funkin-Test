@@ -71,6 +71,20 @@
       "offsets": [0, 0],
       "looped": false,
       "frameRate": 24
+    },
+    {
+      "name": "firstDeath",
+      "prefix": "dies",
+      "offsets": [0, 0],
+      "looped": false,
+      "frameRate": 24
+    },
+    {
+      "name": "deathLoop",
+      "prefix": "dies",
+      "offsets": [0, 0],
+      "looped": true,
+      "frameRate": 24
     }
   ],
   "startingAnimation": "idle"

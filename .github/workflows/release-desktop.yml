@@ -22,7 +22,6 @@ jobs:
     runs-on: ${{ matrix.os }}
     env:
       HXCPP_COMPILE_CACHE: ${{ github.workspace }}/.hxcpp_cache
-      HAXELIB_PATH: ${{ github.workspace }}/.haxelib
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -38,7 +37,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            ${{ env.HAXELIB_PATH }}
+            .haxelib
             ${{ env.HXCPP_COMPILE_CACHE }}
           key: haxe-build-${{ matrix.target }}-${{ runner.os }}-${{ hashFiles('**/hmm.json') }}-${{ github.sha }}
           restore-keys: |
@@ -48,13 +47,11 @@ jobs:
       - name: Install Dependencies
         shell: bash
         run: |
-          mkdir -p ${{ env.HAXELIB_PATH }}
-          haxelib setup ${{ env.HAXELIB_PATH }}
+          haxelib newrepo
           haxelib install hmm --never
+          haxelib install hxp --never
           haxelib run hmm install
           haxelib list
-          # We don't run 'lime setup' here as it might require sudo/interactive input
-          # Lime should work fine if all dependencies from hmm.json are installed
 
       - name: Build game
         run: |
