@@ -45,7 +45,6 @@ jobs:
             haxe-build-${{ matrix.target }}-${{ runner.os }}-
 
       - name: Install Dependencies
-        shell: bash
         run: |
           haxelib newrepo
           haxelib install hmm --never
