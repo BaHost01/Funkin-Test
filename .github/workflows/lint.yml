@@ -1,0 +1,37 @@
+name: Lint
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          submodules: false
+
+      - name: Setup Haxe
+        uses: funkincrew/ci-haxe@v3.2.7
+        with:
+          haxe-version: 4.3.6
+
+      - name: Restore cached dependencies
+        uses: actions/cache@v4
+        with:
+          path: .haxelib
+          key: haxe-hmm-${{ runner.os }}-${{ hashFiles('**/hmm.json') }}
+          restore-keys: |
+            haxe-hmm-${{ runner.os }}-
+
+      - name: Install Checkstyle
+        run: |
+          haxelib newrepo
+          haxelib install hmm --never
+          haxelib install checkstyle --never
+
+      - name: Run Checkstyle
+        run: |
+          haxelib run checkstyle -s source -c checkstyle.json --exit
