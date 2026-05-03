@@ -37,7 +37,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            .haxelib
+            ~/.haxelib
             ${{ env.HXCPP_COMPILE_CACHE }}
           key: haxe-build-${{ matrix.target }}-${{ runner.os }}-${{ hashFiles('**/hmm.json') }}-${{ github.sha }}
           restore-keys: |
@@ -47,16 +47,10 @@ jobs:
       - name: Install Dependencies
         shell: bash
         run: |
-          haxelib newrepo
           haxelib install hmm --never
           haxelib install hxp --never
           haxelib run hmm install
-          # Compile HXCPP tools if it's a git dependency (common in FNF mods)
-          if [ -d ".haxelib/hxcpp/git/tools/hxcpp" ]; then
-            pushd .haxelib/hxcpp/git/tools/hxcpp
-            haxe compile.hxml
-            popd
-          fi
+          haxelib list
           haxelib run lime setup
 
       - name: Build game

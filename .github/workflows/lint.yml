@@ -21,15 +21,15 @@ jobs:
       - name: Restore cached dependencies
         uses: actions/cache@v4
         with:
-          path: .haxelib
+          path: ~/.haxelib
           key: haxe-hmm-${{ runner.os }}-${{ hashFiles('**/hmm.json') }}
           restore-keys: |
             haxe-hmm-${{ runner.os }}-
 
       - name: Install Checkstyle
         run: |
-          haxelib newrepo
           haxelib install checkstyle --never
+          haxelib install hmm --never
 
       - name: Run Checkstyle
         run: |
