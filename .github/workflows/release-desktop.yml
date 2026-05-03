@@ -33,11 +33,10 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          haxelib install lime --never
-          haxelib install openfl --never
-          haxelib install flixel --never
+          haxelib setup ~/haxelib
+          haxelib install hmm --never
+          haxelib run hmm install
           haxelib run lime setup
-          haxelib run hmm install --never
 
       - name: Build game
         run: |
